@@ -15,14 +15,14 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
 
     fun unlockBl(v: View?) {
-        Runtime.getRuntime().exec("su -c dd if=/system/etc/seccfg.bin of=/dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/seccfg")
+        Runtime.getRuntime().exec("dd if=/system/etc/seccfg.bin of=/dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/seccfg")
         val builder = AlertDialog.Builder(this)
         builder.setTitle("Bootloader successfully unlocked!")
         builder.setMessage("Please reboot the phone for changes to take effect. Your data will NOT be erased.")
 //builder.setPositiveButton("OK", DialogInterface.OnClickListener(function = x))
 
         builder.setPositiveButton("OK") { dialog, which ->
-            Runtime.getRuntime().exec("su -c reboot")
+            Runtime.getRuntime().exec("reboot")
         }
 
         builder.setNegativeButton("Later") { dialog, which ->
@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 //builder.setPositiveButton("OK", DialogInterface.OnClickListener(function = x))
 
         builder.setPositiveButton("Continue") { dialog, which ->
-            Runtime.getRuntime().exec("su -c dd if=/dev/zero of=/dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/seccfg")
+            Runtime.getRuntime().exec("dd if=/dev/zero of=/dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/seccfg")
             showDialog()
         }
 
@@ -55,7 +55,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 //builder.setPositiveButton("OK", DialogInterface.OnClickListener(function = x))
 
         builder.setPositiveButton("OK") { dialog, which ->
-            Runtime.getRuntime().exec("su -c reboot")
+            Runtime.getRuntime().exec("reboot")
         }
 
         builder.setNegativeButton("Later") { dialog, which ->
