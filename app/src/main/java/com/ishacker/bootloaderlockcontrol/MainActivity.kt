@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 //builder.setPositiveButton("OK", DialogInterface.OnClickListener(function = x))
 
         builder.setPositiveButton("OK") { dialog, which ->
-            Runtime.getRuntime().exec("reboot")
+            Runtime.getRuntime().exec("svc power reboot")
         }
 
         builder.setNegativeButton("Later") { dialog, which ->
@@ -55,7 +55,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 //builder.setPositiveButton("OK", DialogInterface.OnClickListener(function = x))
 
         builder.setPositiveButton("OK") { dialog, which ->
-            Runtime.getRuntime().exec("reboot")
+            Runtime.getRuntime().exec("svc power reboot")
         }
 
         builder.setNegativeButton("Later") { dialog, which ->
