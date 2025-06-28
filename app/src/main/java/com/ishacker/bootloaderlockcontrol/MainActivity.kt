@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     }
 
 
-    fun unlockBl(v: View?) {
+    fun unlockBl() {
         Runtime.getRuntime().exec("dd if=/system/etc/seccfg.bin of=/dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/seccfg")
         val builder = AlertDialog.Builder(this)
         builder.setTitle("Bootloader successfully unlocked!")
